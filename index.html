@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Entrevista en tiempos de espera de respuesta aduanas Grupo Aduanal del Valle</title>
+<style>
+:root{
+  --orange:#f05a28;
+  --orange-2:#ff7a33;
+  --orange-soft:#fff0e8;
+  --orange-pale:#fff7f2;
+  --purple:#6d42c7;
+  --purple-2:#8b67dc;
+  --purple-soft:#f1ebff;
+  --ink:#22222a;
+  --muted:#6e6878;
+  --line:#eadfd8;
+  --card:#ffffff;
+  --bg:#fbfaf9;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}
+button,select,input{font:inherit}
+.topbar{background:linear-gradient(120deg,#f05a28 0%,#ff7a33 55%,#6d42c7 100%);color:white;padding:42px 22px 56px}
+.wrap{max-width:1180px;margin:auto}
+.eyebrow{font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;opacity:.9}
+h1{font-size:clamp(29px,4.5vw,48px);line-height:1.06;margin:10px 0 12px;max-width:1020px;letter-spacing:-.03em}
+.subtitle{font-size:17px;opacity:.94}
+.dashboard{margin-top:-28px;padding:0 22px 50px}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.kpi{background:white;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 8px 26px rgba(61,38,24,.06)}
+.kpi .v{font-weight:900;font-size:30px;color:var(--purple)}
+.kpi .l{font-size:12px;color:var(--muted);margin-top:5px;line-height:1.35}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 16px}
+.tab{border:1px solid #decfe9;background:white;color:var(--ink);border-radius:999px;padding:10px 15px;font-weight:800;cursor:pointer}
+.tab.active{background:var(--purple);border-color:var(--purple);color:white}
+.panel{display:none}.panel.active{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 6px 20px rgba(40,25,14,.04)}
+.grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:16px}
+.section-title{font-size:22px;margin:0 0 8px}
+.lead{color:var(--muted);line-height:1.6;margin:0 0 16px}
+.badges{display:flex;flex-wrap:wrap;gap:8px}
+.badge{background:var(--orange-soft);color:#8a391b;border:1px solid #ffd3c2;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:800}
+.question-nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.qbtn{border:1px solid #e8dcd3;background:white;border-radius:12px;padding:9px 11px;font-weight:800;cursor:pointer}
+.qbtn.active{background:var(--orange);border-color:var(--orange);color:white}
+.chart-tools{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin:14px 0}
+.segment{display:flex;gap:7px;flex-wrap:wrap}
+.chartBtn{border:1px solid #d8c9e9;background:white;border-radius:10px;padding:8px 11px;cursor:pointer;font-weight:800;color:var(--purple)}
+.chartBtn.active{background:var(--purple);color:white;border-color:var(--purple)}
+.canvas-wrap{position:relative;min-height:360px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#fff,#fffaf7);border:1px solid #f1e5dc;border-radius:15px;padding:14px}
+#chartCanvas{width:100%;height:340px;display:block;cursor:default}
+.chart-tooltip{position:absolute;pointer-events:none;z-index:20;min-width:150px;max-width:240px;padding:10px 12px;border-radius:12px;background:rgba(34,34,42,.94);color:#fff;font-size:12px;line-height:1.4;box-shadow:0 8px 24px rgba(0,0,0,.18);opacity:0;transform:translate(-50%,-115%) scale(.96);transition:opacity .14s ease,transform .14s ease}
+.chart-tooltip.show{opacity:1;transform:translate(-50%,-115%) scale(1)}
+.chart-tooltip strong{display:block;font-size:13px;margin-bottom:3px;color:#fff}
+.chart-tooltip span{color:#eadffb}
+.meta{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-top:10px}
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px;max-height:560px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:10px 9px;border-bottom:1px solid #eee5df;text-align:left;vertical-align:top;white-space:nowrap}
+th{position:sticky;top:0;background:#fff6f1;color:#6f341e;z-index:1}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+select,input{border:1px solid #ddcfc7;background:white;border-radius:10px;padding:10px 12px;min-height:42px}
+.open-list{display:grid;gap:10px}
+.open-item{border-left:5px solid var(--orange);background:var(--orange-pale);padding:13px 14px;border-radius:11px;line-height:1.5}
+.reco{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.reco-item{padding:15px;border-radius:14px;background:linear-gradient(135deg,var(--purple-soft),#fff);border:1px solid #ded2f3}
+.reco-item strong{color:var(--purple)}
+.bar-mini{height:10px;background:#f0e7e2;border-radius:999px;overflow:hidden;margin-top:8px}
+.bar-mini > span{display:block;height:100%;background:linear-gradient(90deg,var(--orange),var(--purple));border-radius:999px}
+.customs-table td:nth-child(3),.customs-table th:nth-child(3){text-align:right}
+.footer{margin-top:18px;text-align:center;color:var(--muted);font-size:12px}
+@media(max-width:920px){.kpis{grid-template-columns:repeat(2,1fr)}.grid2,.reco{grid-template-columns:1fr}}
+@media(max-width:560px){.topbar{padding-top:28px}.dashboard{padding-left:12px;padding-right:12px}.kpis{grid-template-columns:1fr}.canvas-wrap{min-height:300px}#chartCanvas{height:280px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <div class="eyebrow">Grupo Aduanal del Valle</div>
+    <h1>Entrevista en tiempos de espera de respuesta aduanas Grupo Aduanal del Valle</h1>
+    <div class="subtitle">Elaborada por Santiago Samaripa</div>
+  </div>
+</header>
+
+<main class="dashboard">
+<div class="wrap">
+  <section class="kpis">
+    <div class="kpi"><div class="v" id="kTotal"></div><div class="l">personas encuestadas</div></div>
+    <div class="kpi"><div class="v" id="kDelay"></div><div class="l">reportó haber experimentado retrasos</div></div>
+    <div class="kpi"><div class="v" id="kWait"></div><div class="l">tiempo promedio de respuesta</div></div>
+    <div class="kpi"><div class="v" id="kEff"></div><div class="l">eficiencia promedio de comunicación</div></div>
+    <div class="kpi"><div class="v" id="kDates"></div><div class="l">periodo de levantamiento</div></div>
+  </section>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="resumen">Resumen</button>
+    <button class="tab" data-tab="preguntas">Explorar preguntas</button>
+    <button class="tab" data-tab="respuestas">Respuesta por respuesta</button>
+    <button class="tab" data-tab="recomendaciones">Recomendaciones</button>
+  </nav>
+
+  <section id="resumen" class="panel active">
+    <div class="grid2">
+      <div class="card">
+        <h2 class="section-title">Perfil de las personas encuestadas</h2>
+        <p class="lead">La participación se concentró en áreas directamente vinculadas con el seguimiento operativo y la comunicación con distintas aduanas.</p>
+        <div class="badges" id="areaBadges"></div>
+        <div style="margin-top:18px">
+          <h3 style="margin:0 0 10px">Aduanas con más menciones</h3>
+          <div id="customsMini"></div>
+        </div>
+      </div>
+      <div class="card">
+        <h2 class="section-title">Lectura general de resultados</h2>
+        <p class="lead" id="summaryText"></p>
+        <div class="open-list" id="highlights"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="preguntas" class="panel">
+    <div class="card">
+      <h2 class="section-title">Explorar pregunta por pregunta</h2>
+      <p class="lead">Selecciona una pregunta y cambia el tipo de gráfico. Cada cambio vuelve a animar la visualización.</p>
+      <div class="question-nav" id="questionNav"></div>
+      <h3 id="questionTitle" style="margin:14px 0 6px"></h3>
+      <p id="questionPurpose" class="lead"></p>
+      <div class="chart-tools">
+        <div class="segment">
+          <button class="chartBtn active" data-type="pie">Pastel</button>
+          <button class="chartBtn" data-type="donut">Dona</button>
+          <button class="chartBtn" data-type="bar">Columnas</button>
+        </div>
+        <div class="meta"><span id="responseCount"></span><span id="topAnswer"></span></div>
+      </div>
+      <div class="canvas-wrap"><canvas id="chartCanvas" width="980" height="340"></canvas><div id="chartTooltip" class="chart-tooltip" role="status" aria-live="polite"></div></div>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <h2 class="section-title">Respuestas abiertas</h2>
+      <p class="lead">Principales factores mencionados por las personas encuestadas.</p>
+      <div id="openAnswers" class="open-list"></div>
+    </div>
+  </section>
+
+  <section id="respuestas" class="panel">
+    <div class="card">
+      <h2 class="section-title">Respuesta por respuesta</h2>
+      <p class="lead">Filtra por área o aduana para revisar los registros de manera individual.</p>
+      <div class="filters">
+        <select id="areaFilter"><option value="">Todas las áreas</option></select>
+        <select id="customsFilter"><option value="">Todas las aduanas</option></select>
+        <input id="searchBox" type="search" placeholder="Buscar factor o texto...">
+      </div>
+      <div id="rowCount" class="lead" style="margin-bottom:8px"></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>ID</th><th>Fecha y hora</th><th>Área</th><th>Frecuencia</th><th>Aduana</th>
+            <th>Retrasos</th><th>Minutos</th><th>Rango</th><th>Información</th>
+            <th>Distancia</th><th>Eficiencia</th><th>Factor</th>
+          </tr></thead>
+          <tbody id="responseBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="recomendaciones" class="panel">
+    <div class="card">
+      <h2 class="section-title">Recomendaciones derivadas de los resultados</h2>
+      <p class="lead">Las recomendaciones se enfocan en reducir tiempos de respuesta y mejorar la continuidad de la comunicación en las aduanas con mayor número de menciones.</p>
+      <div class="reco">
+        <div class="reco-item"><strong>1. Definir responsables de seguimiento</strong><br>Asignar un responsable visible por operación para disminuir tiempos perdidos al buscar quién debe confirmar el siguiente avance.</div>
+        <div class="reco-item"><strong>2. Centralizar actualizaciones</strong><br>Usar un canal principal para registrar cambios de estatus y evitar que información relevante quede dispersa entre varios medios.</div>
+        <div class="reco-item"><strong>3. Establecer tiempos internos de respuesta</strong><br>Definir metas de respuesta especialmente para Manzanillo, Lázaro Cárdenas, Veracruz y Progreso, donde se concentra la mayor cantidad de incidencias.</div>
+        <div class="reco-item"><strong>4. Estandarizar el reporte de estatus</strong><br>Utilizar mensajes o formatos breves con operación, responsable, avance, pendiente y siguiente actualización esperada.</div>
+      </div>
+      <div style="margin-top:20px">
+        <h3 style="margin-bottom:10px">Comparativo por aduana</h3>
+        <div class="table-wrap" style="max-height:none">
+          <table class="customs-table">
+            <thead><tr><th>Aduana</th><th>Menciones</th><th>Tiempo promedio</th><th>% con retrasos</th></tr></thead>
+            <tbody id="customsStatsBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">Panel interactivo de resultados · Grupo Aduanal del Valle</div>
+</div>
+</main>
+
+<script>
+const DATA = {"records": [{"ID": "R-001", "Fecha y hora": "05/10/2026 09:55", "Área": "Operaciones", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Veracruz", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 69, "Rango de espera": "1-1.5 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "No", "Eficiencia de comunicación (1-5)": 4, "Principal factor de retraso (abierta)": "Tiempos de respuesta entre equipos"}, {"ID": "R-002", "Fecha y hora": "05/10/2026 10:07", "Área": "Operaciones", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Lázaro Cárdenas", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 128, "Rango de espera": "2-3 horas", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "No", "Eficiencia de comunicación (1-5)": 2, "Principal factor de retraso (abierta)": "Confirmación tardía del estatus"}, {"ID": "R-003", "Fecha y hora": "05/10/2026 10:52", "Área": "Despacho", "Frecuencia de contacto": "Ocasionalmente", "Aduana con mayor dificultad": "Progreso", "¿Ha experimentado retrasos?": "No", "Tiempo de respuesta (min)": 98, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "No", "Eficiencia de comunicación (1-5)": 4, "Principal factor de retraso (abierta)": "Carga de trabajo en momentos de mayor operación"}, {"ID": "R-004", "Fecha y hora": "05/10/2026 11:47", "Área": "Coordinación", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Lázaro Cárdenas", "¿Ha experimentado retrasos?": "No", "Tiempo de respuesta (min)": 77, "Rango de espera": "1-1.5 horas", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 4, "Principal factor de retraso (abierta)": "Seguimiento entre áreas"}, {"ID": "R-005", "Fecha y hora": "05/10/2026 11:54", "Área": "Operaciones", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Progreso", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 88, "Rango de espera": "1-1.5 horas", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 4, "Principal factor de retraso (abierta)": "Disponibilidad del responsable"}, {"ID": "R-006", "Fecha y hora": "05/10/2026 12:26", "Área": "Operaciones", "Frecuencia de contacto": "Varias veces por semana", "Aduana con mayor dificultad": "Dos Bocas", "¿Ha experimentado retrasos?": "No", "Tiempo de respuesta (min)": 72, "Rango de espera": "1-1.5 horas", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 4, "Principal factor de retraso (abierta)": "Tiempos de respuesta entre equipos"}, {"ID": "R-007", "Fecha y hora": "05/10/2026 12:54", "Área": "Despacho", "Frecuencia de contacto": "Varias veces por semana", "Aduana con mayor dificultad": "Cancún", "¿Ha experimentado retrasos?": "No", "Tiempo de respuesta (min)": 44, "Rango de espera": "30-59 minutos", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "No", "Eficiencia de comunicación (1-5)": 5, "Principal factor de retraso (abierta)": "Información incompleta"}, {"ID": "R-008", "Fecha y hora": "05/10/2026 12:56", "Área": "Tráfico", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Lázaro Cárdenas", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 93, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "No", "Eficiencia de comunicación (1-5)": 2, "Principal factor de retraso (abierta)": "Tiempos de respuesta entre equipos"}, {"ID": "R-009", "Fecha y hora": "05/10/2026 13:38", "Área": "Despacho", "Frecuencia de contacto": "Varias veces por semana", "Aduana con mayor dificultad": "Veracruz", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 116, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Uso de distintos canales"}, {"ID": "R-010", "Fecha y hora": "05/10/2026 14:12", "Área": "Operaciones", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Veracruz", "¿Ha experimentado retrasos?": "No", "Tiempo de respuesta (min)": 116, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "No", "Eficiencia de comunicación (1-5)": 4, "Principal factor de retraso (abierta)": "Uso de distintos canales"}, {"ID": "R-011", "Fecha y hora": "05/10/2026 14:19", "Área": "Tráfico", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Veracruz", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 51, "Rango de espera": "30-59 minutos", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Información incompleta"}, {"ID": "R-012", "Fecha y hora": "05/10/2026 16:22", "Área": "Operaciones", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Progreso", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 59, "Rango de espera": "30-59 minutos", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 4, "Principal factor de retraso (abierta)": "Información incompleta"}, {"ID": "R-013", "Fecha y hora": "05/10/2026 17:38", "Área": "Operaciones", "Frecuencia de contacto": "Varias veces por semana", "Aduana con mayor dificultad": "Lázaro Cárdenas", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 109, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "No", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Disponibilidad del responsable"}, {"ID": "R-014", "Fecha y hora": "05/10/2026 17:40", "Área": "Operaciones", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Manzanillo", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 89, "Rango de espera": "1-1.5 horas", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 4, "Principal factor de retraso (abierta)": "Cambios de estatus que no se notifican de inmediato"}, {"ID": "R-015", "Fecha y hora": "06/10/2026 09:04", "Área": "Operaciones", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Manzanillo", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 130, "Rango de espera": "2-3 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Uso de distintos canales"}, {"ID": "R-016", "Fecha y hora": "06/10/2026 11:45", "Área": "Operaciones", "Frecuencia de contacto": "Varias veces por semana", "Aduana con mayor dificultad": "Lázaro Cárdenas", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 91, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 2, "Principal factor de retraso (abierta)": "Tiempos de respuesta entre equipos"}, {"ID": "R-017", "Fecha y hora": "06/10/2026 11:56", "Área": "Operaciones", "Frecuencia de contacto": "Varias veces por semana", "Aduana con mayor dificultad": "Progreso", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 95, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "No", "Eficiencia de comunicación (1-5)": 2, "Principal factor de retraso (abierta)": "Información incompleta"}, {"ID": "R-018", "Fecha y hora": "06/10/2026 13:07", "Área": "Tráfico", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Nuevo Laredo", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 63, "Rango de espera": "1-1.5 horas", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "No", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Disponibilidad del responsable"}, {"ID": "R-019", "Fecha y hora": "06/10/2026 14:17", "Área": "Tráfico", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Veracruz", "¿Ha experimentado retrasos?": "No", "Tiempo de respuesta (min)": 93, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Tiempos de respuesta entre equipos"}, {"ID": "R-020", "Fecha y hora": "06/10/2026 15:06", "Área": "Coordinación", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Lázaro Cárdenas", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 155, "Rango de espera": "2-3 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 2, "Principal factor de retraso (abierta)": "Tiempos de respuesta entre equipos"}, {"ID": "R-021", "Fecha y hora": "06/10/2026 15:09", "Área": "Despacho", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Veracruz", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 62, "Rango de espera": "1-1.5 horas", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Tiempos de respuesta entre equipos"}, {"ID": "R-022", "Fecha y hora": "06/10/2026 15:23", "Área": "Operaciones", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Aeropuerto CDMX", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 79, "Rango de espera": "1-1.5 horas", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Cambios de estatus que no se notifican de inmediato"}, {"ID": "R-023", "Fecha y hora": "06/10/2026 15:51", "Área": "Despacho", "Frecuencia de contacto": "Varias veces por semana", "Aduana con mayor dificultad": "Lázaro Cárdenas", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 112, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "No", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Disponibilidad del responsable"}, {"ID": "R-024", "Fecha y hora": "06/10/2026 16:11", "Área": "Tráfico", "Frecuencia de contacto": "Ocasionalmente", "Aduana con mayor dificultad": "Progreso", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 94, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "No", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Seguimiento entre áreas"}, {"ID": "R-025", "Fecha y hora": "06/10/2026 16:27", "Área": "Operaciones", "Frecuencia de contacto": "Varias veces por semana", "Aduana con mayor dificultad": "Progreso", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 101, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "No", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Disponibilidad del responsable"}, {"ID": "R-026", "Fecha y hora": "06/10/2026 16:33", "Área": "Tráfico", "Frecuencia de contacto": "Varias veces por semana", "Aduana con mayor dificultad": "Lázaro Cárdenas", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 94, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "No", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Tiempos de respuesta entre equipos"}, {"ID": "R-027", "Fecha y hora": "06/10/2026 17:28", "Área": "Operaciones", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Manzanillo", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 117, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Cambios de estatus que no se notifican de inmediato"}, {"ID": "R-028", "Fecha y hora": "06/10/2026 17:31", "Área": "Despacho", "Frecuencia de contacto": "Ocasionalmente", "Aduana con mayor dificultad": "AIFA", "¿Ha experimentado retrasos?": "No", "Tiempo de respuesta (min)": 58, "Rango de espera": "30-59 minutos", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Información incompleta"}, {"ID": "R-029", "Fecha y hora": "06/10/2026 17:59", "Área": "Coordinación", "Frecuencia de contacto": "Varias veces por semana", "Aduana con mayor dificultad": "Veracruz", "¿Ha experimentado retrasos?": "No", "Tiempo de respuesta (min)": 105, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Confirmación tardía del estatus"}, {"ID": "R-030", "Fecha y hora": "07/10/2026 10:03", "Área": "Operaciones", "Frecuencia de contacto": "Varias veces por semana", "Aduana con mayor dificultad": "Cd. del Carmen", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 65, "Rango de espera": "1-1.5 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Cambios de estatus que no se notifican de inmediato"}, {"ID": "R-031", "Fecha y hora": "07/10/2026 10:06", "Área": "Operaciones", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Manzanillo", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 121, "Rango de espera": "2-3 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 2, "Principal factor de retraso (abierta)": "Uso de distintos canales"}, {"ID": "R-032", "Fecha y hora": "07/10/2026 11:43", "Área": "Operaciones", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Manzanillo", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 101, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 2, "Principal factor de retraso (abierta)": "Uso de distintos canales"}, {"ID": "R-033", "Fecha y hora": "07/10/2026 12:08", "Área": "Despacho", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Manzanillo", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 113, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Cambios de estatus que no se notifican de inmediato"}, {"ID": "R-034", "Fecha y hora": "07/10/2026 14:20", "Área": "Despacho", "Frecuencia de contacto": "Varias veces por semana", "Aduana con mayor dificultad": "Lázaro Cárdenas", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 99, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 2, "Principal factor de retraso (abierta)": "Seguimiento entre áreas"}, {"ID": "R-035", "Fecha y hora": "07/10/2026 14:33", "Área": "Coordinación", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "AIFA", "¿Ha experimentado retrasos?": "No", "Tiempo de respuesta (min)": 61, "Rango de espera": "1-1.5 horas", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "No", "Eficiencia de comunicación (1-5)": 4, "Principal factor de retraso (abierta)": "Uso de distintos canales"}, {"ID": "R-036", "Fecha y hora": "07/10/2026 14:40", "Área": "Operaciones", "Frecuencia de contacto": "Varias veces por semana", "Aduana con mayor dificultad": "Manzanillo", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 96, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "No", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Uso de distintos canales"}, {"ID": "R-037", "Fecha y hora": "07/10/2026 15:08", "Área": "Coordinación", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Lázaro Cárdenas", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 68, "Rango de espera": "1-1.5 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Confirmación tardía del estatus"}, {"ID": "R-038", "Fecha y hora": "07/10/2026 15:31", "Área": "Operaciones", "Frecuencia de contacto": "Ocasionalmente", "Aduana con mayor dificultad": "Manzanillo", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 96, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 2, "Principal factor de retraso (abierta)": "Cambios de estatus que no se notifican de inmediato"}, {"ID": "R-039", "Fecha y hora": "07/10/2026 15:52", "Área": "Coordinación", "Frecuencia de contacto": "Varias veces por semana", "Aduana con mayor dificultad": "Progreso", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 88, "Rango de espera": "1-1.5 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 4, "Principal factor de retraso (abierta)": "Disponibilidad del responsable"}, {"ID": "R-040", "Fecha y hora": "07/10/2026 16:23", "Área": "Operaciones", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Manzanillo", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 107, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "No", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Uso de distintos canales"}, {"ID": "R-041", "Fecha y hora": "07/10/2026 16:39", "Área": "Coordinación", "Frecuencia de contacto": "Ocasionalmente", "Aduana con mayor dificultad": "Lázaro Cárdenas", "¿Ha experimentado retrasos?": "No", "Tiempo de respuesta (min)": 97, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Seguimiento entre áreas"}, {"ID": "R-042", "Fecha y hora": "07/10/2026 16:49", "Área": "Operaciones", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Manzanillo", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 125, "Rango de espera": "2-3 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Uso de distintos canales"}, {"ID": "R-043", "Fecha y hora": "07/10/2026 17:37", "Área": "Despacho", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Veracruz", "¿Ha experimentado retrasos?": "No", "Tiempo de respuesta (min)": 85, "Rango de espera": "1-1.5 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Tiempos de respuesta entre equipos"}, {"ID": "R-044", "Fecha y hora": "07/10/2026 17:47", "Área": "Coordinación", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Manzanillo", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 106, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 2, "Principal factor de retraso (abierta)": "Tiempos de respuesta entre equipos"}, {"ID": "R-045", "Fecha y hora": "08/10/2026 08:45", "Área": "Despacho", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Lázaro Cárdenas", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 86, "Rango de espera": "1-1.5 horas", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Tiempos de respuesta entre equipos"}, {"ID": "R-046", "Fecha y hora": "08/10/2026 09:00", "Área": "Despacho", "Frecuencia de contacto": "Varias veces por semana", "Aduana con mayor dificultad": "Aeropuerto CDMX", "¿Ha experimentado retrasos?": "No", "Tiempo de respuesta (min)": 68, "Rango de espera": "1-1.5 horas", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 5, "Principal factor de retraso (abierta)": "Tiempos de respuesta entre equipos"}, {"ID": "R-047", "Fecha y hora": "08/10/2026 10:10", "Área": "Despacho", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Lázaro Cárdenas", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 116, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "No", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Seguimiento entre áreas"}, {"ID": "R-048", "Fecha y hora": "08/10/2026 10:34", "Área": "Despacho", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Nuevo Laredo", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 72, "Rango de espera": "1-1.5 horas", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Información incompleta"}, {"ID": "R-049", "Fecha y hora": "08/10/2026 11:54", "Área": "Coordinación", "Frecuencia de contacto": "Varias veces por semana", "Aduana con mayor dificultad": "Manzanillo", "¿Ha experimentado retrasos?": "No", "Tiempo de respuesta (min)": 93, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Cambios de estatus que no se notifican de inmediato"}, {"ID": "R-050", "Fecha y hora": "08/10/2026 14:22", "Área": "Coordinación", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Veracruz", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 98, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 2, "Principal factor de retraso (abierta)": "Información incompleta"}, {"ID": "R-051", "Fecha y hora": "08/10/2026 14:46", "Área": "Operaciones", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Veracruz", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 104, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Uso de distintos canales"}, {"ID": "R-052", "Fecha y hora": "08/10/2026 15:09", "Área": "Operaciones", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Veracruz", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 86, "Rango de espera": "1-1.5 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Información incompleta"}, {"ID": "R-053", "Fecha y hora": "08/10/2026 15:29", "Área": "Operaciones", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Manzanillo", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 131, "Rango de espera": "2-3 horas", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 2, "Principal factor de retraso (abierta)": "Uso de distintos canales"}, {"ID": "R-054", "Fecha y hora": "08/10/2026 15:35", "Área": "Despacho", "Frecuencia de contacto": "Varias veces por semana", "Aduana con mayor dificultad": "Veracruz", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 96, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Confirmación tardía del estatus"}, {"ID": "R-055", "Fecha y hora": "08/10/2026 15:48", "Área": "Despacho", "Frecuencia de contacto": "Ocasionalmente", "Aduana con mayor dificultad": "Progreso", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 76, "Rango de espera": "1-1.5 horas", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "No", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Información incompleta"}, {"ID": "R-056", "Fecha y hora": "08/10/2026 17:04", "Área": "Operaciones", "Frecuencia de contacto": "Varias veces por semana", "Aduana con mayor dificultad": "Puerto Morelos", "¿Ha experimentado retrasos?": "No", "Tiempo de respuesta (min)": 47, "Rango de espera": "30-59 minutos", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "No", "Eficiencia de comunicación (1-5)": 5, "Principal factor de retraso (abierta)": "Uso de distintos canales"}, {"ID": "R-057", "Fecha y hora": "08/10/2026 17:11", "Área": "Despacho", "Frecuencia de contacto": "Varias veces por semana", "Aduana con mayor dificultad": "Manzanillo", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 116, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Cambios de estatus que no se notifican de inmediato"}, {"ID": "R-058", "Fecha y hora": "08/10/2026 17:17", "Área": "Operaciones", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Lázaro Cárdenas", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 97, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "No", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Confirmación tardía del estatus"}, {"ID": "R-059", "Fecha y hora": "08/10/2026 17:41", "Área": "Despacho", "Frecuencia de contacto": "Varias veces por semana", "Aduana con mayor dificultad": "Lázaro Cárdenas", "¿Ha experimentado retrasos?": "No", "Tiempo de respuesta (min)": 83, "Rango de espera": "1-1.5 horas", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Confirmación tardía del estatus"}, {"ID": "R-060", "Fecha y hora": "09/10/2026 08:32", "Área": "Despacho", "Frecuencia de contacto": "Varias veces por semana", "Aduana con mayor dificultad": "Manzanillo", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 120, "Rango de espera": "2-3 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 2, "Principal factor de retraso (abierta)": "Tiempos de respuesta entre equipos"}, {"ID": "R-061", "Fecha y hora": "09/10/2026 08:39", "Área": "Tráfico", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Dos Bocas", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 54, "Rango de espera": "30-59 minutos", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "No", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Disponibilidad del responsable"}, {"ID": "R-062", "Fecha y hora": "09/10/2026 09:12", "Área": "Operaciones", "Frecuencia de contacto": "Varias veces por semana", "Aduana con mayor dificultad": "Manzanillo", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 139, "Rango de espera": "2-3 horas", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 2, "Principal factor de retraso (abierta)": "Cambios de estatus que no se notifican de inmediato"}, {"ID": "R-063", "Fecha y hora": "09/10/2026 09:22", "Área": "Tráfico", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Progreso", "¿Ha experimentado retrasos?": "No", "Tiempo de respuesta (min)": 85, "Rango de espera": "1-1.5 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 4, "Principal factor de retraso (abierta)": "Disponibilidad del responsable"}, {"ID": "R-064", "Fecha y hora": "09/10/2026 09:59", "Área": "Operaciones", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Lázaro Cárdenas", "¿Ha experimentado retrasos?": "No", "Tiempo de respuesta (min)": 122, "Rango de espera": "2-3 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 2, "Principal factor de retraso (abierta)": "Disponibilidad del responsable"}, {"ID": "R-065", "Fecha y hora": "09/10/2026 10:54", "Área": "Despacho", "Frecuencia de contacto": "Varias veces por semana", "Aduana con mayor dificultad": "Manzanillo", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 118, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 2, "Principal factor de retraso (abierta)": "Uso de distintos canales"}, {"ID": "R-066", "Fecha y hora": "09/10/2026 11:13", "Área": "Coordinación", "Frecuencia de contacto": "Varias veces por semana", "Aduana con mayor dificultad": "Cancún", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 59, "Rango de espera": "30-59 minutos", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "No", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Disponibilidad del responsable"}, {"ID": "R-067", "Fecha y hora": "09/10/2026 11:20", "Área": "Tráfico", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Mérida", "¿Ha experimentado retrasos?": "No", "Tiempo de respuesta (min)": 49, "Rango de espera": "30-59 minutos", "¿Información incompleta/tardía/contradictoria?": "No", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 5, "Principal factor de retraso (abierta)": "Cambios de estatus que no se notifican de inmediato"}, {"ID": "R-068", "Fecha y hora": "09/10/2026 11:43", "Área": "Operaciones", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Nuevo Laredo", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 103, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 2, "Principal factor de retraso (abierta)": "Tiempos de respuesta entre equipos"}, {"ID": "R-069", "Fecha y hora": "09/10/2026 13:01", "Área": "Coordinación", "Frecuencia de contacto": "Varias veces por semana", "Aduana con mayor dificultad": "Manzanillo", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 98, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "No", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Tiempos de respuesta entre equipos"}, {"ID": "R-070", "Fecha y hora": "09/10/2026 13:07", "Área": "Tráfico", "Frecuencia de contacto": "Varias veces por semana", "Aduana con mayor dificultad": "Veracruz", "¿Ha experimentado retrasos?": "No", "Tiempo de respuesta (min)": 84, "Rango de espera": "1-1.5 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "Sí", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Tiempos de respuesta entre equipos"}, {"ID": "R-071", "Fecha y hora": "09/10/2026 14:17", "Área": "Coordinación", "Frecuencia de contacto": "Varias veces por semana", "Aduana con mayor dificultad": "Veracruz", "¿Ha experimentado retrasos?": "No", "Tiempo de respuesta (min)": 106, "Rango de espera": "1.5-2 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "No", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Uso de distintos canales"}, {"ID": "R-072", "Fecha y hora": "09/10/2026 14:19", "Área": "Coordinación", "Frecuencia de contacto": "Varias veces por semana", "Aduana con mayor dificultad": "Progreso", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 49, "Rango de espera": "30-59 minutos", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "No", "Eficiencia de comunicación (1-5)": 5, "Principal factor de retraso (abierta)": "Seguimiento entre áreas"}, {"ID": "R-073", "Fecha y hora": "09/10/2026 14:38", "Área": "Operaciones", "Frecuencia de contacto": "Varias veces por semana", "Aduana con mayor dificultad": "Mérida", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 49, "Rango de espera": "30-59 minutos", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "No", "Eficiencia de comunicación (1-5)": 3, "Principal factor de retraso (abierta)": "Información incompleta"}, {"ID": "R-074", "Fecha y hora": "09/10/2026 15:00", "Área": "Despacho", "Frecuencia de contacto": "Diariamente", "Aduana con mayor dificultad": "Veracruz", "¿Ha experimentado retrasos?": "Sí", "Tiempo de respuesta (min)": 160, "Rango de espera": "2-3 horas", "¿Información incompleta/tardía/contradictoria?": "Sí", "¿La distancia dificulta el seguimiento?": "No", "Eficiencia de comunicación (1-5)": 2, "Principal factor de retraso (abierta)": "Tiempos de respuesta entre equipos"}], "questions": [{"id": "area", "title": "¿En qué área de Grupo Aduanal del Valle trabaja actualmente?", "purpose": "Permite conocer la distribución de las personas encuestadas por área operativa.", "data": {"Operaciones": 30, "Despacho": 20, "Coordinación": 14, "Tráfico": 10}}, {"id": "frequency", "title": "¿Con qué frecuencia participa en operaciones que requieren comunicación con aduanas de otros estados?", "purpose": "Ayuda a identificar qué tan frecuente es el contacto operativo con otras aduanas.", "data": {"Diariamente": 39, "Varias veces por semana": 29, "Ocasionalmente": 6}}, {"id": "customs", "title": "¿Con qué aduana ha tenido mayores dificultades de comunicación o seguimiento?", "purpose": "Permite ubicar los puntos donde se concentran más dificultades de comunicación.", "data": {"Manzanillo": 18, "Lázaro Cárdenas": 16, "Veracruz": 15, "Progreso": 10, "Nuevo Laredo": 3, "AIFA": 2, "Aeropuerto CDMX": 2, "Cancún": 2, "Dos Bocas": 2, "Mérida": 2, "Cd. del Carmen": 1, "Puerto Morelos": 1}}, {"id": "delays", "title": "¿Ha experimentado retrasos en la recepción de respuestas o actualizaciones durante una operación?", "purpose": "Mide directamente la presencia de retrasos dentro del proceso de comunicación.", "data": {"Sí": 54, "No": 20}}, {"id": "wait", "title": "De la aduana seleccionada, ¿cuánto tiempo de espera le lleva conseguir una respuesta rápida?", "purpose": "Permite observar los rangos de tiempo de respuesta percibidos durante las operaciones.", "data": {"1.5-2 horas": 33, "1-1.5 horas": 21, "2-3 horas": 10, "30-59 minutos": 10}}, {"id": "info", "title": "¿Ha recibido información incompleta, tardía o contradictoria durante una operación?", "purpose": "Identifica problemas relacionados con la calidad y oportunidad de la información recibida.", "data": {"Sí": 39, "No": 35}}, {"id": "distance", "title": "¿Considera que la distancia física con otras aduanas dificulta la comunicación y el seguimiento?", "purpose": "Evalúa si la distancia es percibida como un factor que afecta el seguimiento operativo.", "data": {"Sí": 47, "No": 27}}, {"id": "efficiency", "title": "En una escala del 1 al 5, ¿qué tan eficiente considera actualmente la comunicación entre la sucursal Progreso y otras aduanas?", "purpose": "Resume la percepción general de eficiencia de la comunicación.", "data": {"3": 40, "2": 18, "4": 11, "5": 5}}, {"id": "factor", "title": "¿Qué factor considera que genera más retrasos en la comunicación?", "purpose": "Recopila de manera abierta las causas que el personal identifica con mayor frecuencia.", "data": {"Tiempos de respuesta entre equipos": 17, "Uso de distintos canales": 14, "Cambios de estatus que no se notifican de inmediato": 10, "Disponibilidad del responsable": 10, "Información incompleta": 10, "Confirmación tardía del estatus": 6, "Seguimiento entre áreas": 6, "Carga de trabajo en momentos de mayor operación": 1}}], "customsStats": [{"aduana": "Manzanillo", "count": 18, "avg": 112.0, "delayPct": 94.4}, {"aduana": "Lázaro Cárdenas", "count": 16, "avg": 101.7, "delayPct": 75.0}, {"aduana": "Veracruz", "count": 15, "avg": 95.4, "delayPct": 60.0}, {"aduana": "Progreso", "count": 10, "avg": 83.3, "delayPct": 80.0}, {"aduana": "Nuevo Laredo", "count": 3, "avg": 79.3, "delayPct": 100.0}, {"aduana": "AIFA", "count": 2, "avg": 59.5, "delayPct": 0.0}, {"aduana": "Aeropuerto CDMX", "count": 2, "avg": 73.5, "delayPct": 50.0}, {"aduana": "Cancún", "count": 2, "avg": 51.5, "delayPct": 50.0}, {"aduana": "Dos Bocas", "count": 2, "avg": 63.0, "delayPct": 50.0}, {"aduana": "Mérida", "count": 2, "avg": 49.0, "delayPct": 50.0}, {"aduana": "Cd. del Carmen", "count": 1, "avg": 65.0, "delayPct": 100.0}, {"aduana": "Puerto Morelos", "count": 1, "avg": 47.0, "delayPct": 0.0}], "stats": {"total": 74, "avgWait": 92.6, "delayPct": 73.0, "avgEff": 3.04, "dateMin": "05/10/2026", "dateMax": "09/10/2026"}};
+const COLORS = ["#f05a28","#ff7a33","#6d42c7","#8b67dc","#f3a36e","#b89be9","#d44f1d","#7a4bc3","#ffb78f","#9b79df","#e57a47","#5b35a8"];
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+
+$("#kTotal").textContent = DATA.stats.total;
+$("#kDelay").textContent = DATA.stats.delayPct.toFixed(1) + "%";
+$("#kWait").textContent = DATA.stats.avgWait.toFixed(1) + " min";
+$("#kEff").textContent = DATA.stats.avgEff.toFixed(2) + "/5";
+$("#kDates").textContent = DATA.stats.dateMin + "–" + DATA.stats.dateMax;
+
+const areaQ = DATA.questions.find(q=>q.id==="area");
+$("#areaBadges").innerHTML = Object.entries(areaQ.data).map(([k,v])=>`<span class="badge">${k}: ${v}</span>`).join("");
+
+const sortedCustoms = [...DATA.customsStats].sort((a,b)=>b.count-a.count);
+const maxCount = Math.max(...sortedCustoms.map(x=>x.count));
+$("#customsMini").innerHTML = sortedCustoms.slice(0,6).map(x=>`
+  <div style="margin:10px 0">
+    <div style="display:flex;justify-content:space-between;gap:12px;font-size:13px"><strong>${x.aduana}</strong><span>${x.count} menciones · ${x.avg.toFixed(1)} min</span></div>
+    <div class="bar-mini"><span style="width:${(x.count/maxCount)*100}%"></span></div>
+  </div>`).join("");
+
+$("#summaryText").textContent =
+  `De ${DATA.stats.total} registros, ${DATA.stats.delayPct.toFixed(1)}% reportó haber experimentado retrasos. ` +
+  `El tiempo promedio de respuesta fue de ${DATA.stats.avgWait.toFixed(1)} minutos y la eficiencia promedio de comunicación fue de ${DATA.stats.avgEff.toFixed(2)} sobre 5.`;
+
+$("#highlights").innerHTML = sortedCustoms.slice(0,4).map((x,i)=>`
+  <div class="open-item"><strong>${i+1}. ${x.aduana}</strong>: ${x.count} menciones, ${x.avg.toFixed(1)} minutos promedio y ${x.delayPct.toFixed(1)}% con retrasos.</div>
+`).join("");
+
+$$(".tab").forEach(btn=>btn.addEventListener("click",()=>{
+  $$(".tab").forEach(b=>b.classList.remove("active"));
+  $$(".panel").forEach(p=>p.classList.remove("active"));
+  btn.classList.add("active");
+  $("#"+btn.dataset.tab).classList.add("active");
+  if(btn.dataset.tab==="preguntas") setTimeout(()=>drawChart(true),60);
+}));
+
+let currentQuestion = 0;
+let chartType = "pie";
+let hoverIndex = -1;
+let chartHitRegions = [];
+$("#questionNav").innerHTML = DATA.questions.map((q,i)=>`<button class="qbtn ${i===0?"active":""}" data-i="${i}">${i+1}</button>`).join("");
+
+$("#questionNav").addEventListener("click",e=>{
+  const b=e.target.closest(".qbtn"); if(!b) return;
+  currentQuestion = +b.dataset.i;
+  hoverIndex=-1; tooltip.classList.remove("show");
+  $$(".qbtn").forEach(x=>x.classList.remove("active"));
+  b.classList.add("active");
+  updateQuestion();
+  drawChart(true);
+});
+
+$$(".chartBtn").forEach(btn=>btn.addEventListener("click",()=>{
+  $$(".chartBtn").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+  chartType=btn.dataset.type;
+  hoverIndex=-1; tooltip.classList.remove("show");
+  drawChart(true);
+}));
+
+function updateQuestion(){
+  const q = DATA.questions[currentQuestion];
+  $("#questionTitle").textContent = q.title;
+  $("#questionPurpose").textContent = q.purpose;
+  const entries = Object.entries(q.data).sort((a,b)=>b[1]-a[1]);
+  $("#responseCount").textContent = `Total: ${entries.reduce((a,[,v])=>a+v,0)}`;
+  if(entries.length) $("#topAnswer").textContent = `Mayor frecuencia: ${entries[0][0]} (${entries[0][1]})`;
+}
+updateQuestion();
+
+function drawChart(animate=false){
+  const q=DATA.questions[currentQuestion];
+  const entries=Object.entries(q.data).sort((a,b)=>b[1]-a[1]);
+  const canvas=$("#chartCanvas");
+  const ctx=canvas.getContext("2d");
+  const dpr=window.devicePixelRatio||1;
+  const cssW=canvas.clientWidth, cssH=canvas.clientHeight;
+  canvas.width=cssW*dpr; canvas.height=cssH*dpr;
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  const W=cssW,H=cssH;
+  chartHitRegions = [];
+  let progress=animate?0:1;
+  const start=performance.now();
+
+  function frame(now){
+    if(animate) progress=Math.min(1,(now-start)/700);
+    const ease=1-Math.pow(1-progress,3);
+    ctx.clearRect(0,0,W,H);
+    ctx.font="13px Inter, system-ui, sans-serif";
+    ctx.fillStyle="#22222a";
+
+    if(chartType==="bar"){
+      const padL=58,padR=20,padT=20,padB=72;
+      const max=Math.max(...entries.map(x=>x[1]));
+      const gap=10;
+      const bw=Math.max(20,(W-padL-padR-gap*(entries.length-1))/entries.length);
+      ctx.strokeStyle="#ddd3cc";ctx.lineWidth=1;
+      ctx.beginPath();ctx.moveTo(padL,padT);ctx.lineTo(padL,H-padB);ctx.lineTo(W-padR,H-padB);ctx.stroke();
+
+      entries.forEach(([label,val],i)=>{
+        const hovered = i===hoverIndex;
+        const extra = hovered ? 8 : 0;
+        const h=(H-padT-padB)*(val/max)*ease + extra;
+        const x=padL+i*(bw+gap) - (hovered?3:0);
+        const y=H-padB-h;
+        const drawW=bw+(hovered?6:0);
+
+        const g=ctx.createLinearGradient(0,y,0,H-padB);
+        g.addColorStop(0,COLORS[i%COLORS.length]);g.addColorStop(1,"#f6c7af");
+        ctx.save();
+        if(hovered){ctx.shadowColor="rgba(109,66,199,.24)";ctx.shadowBlur=16;}
+        ctx.fillStyle=g;ctx.fillRect(x,y,drawW,h);
+        ctx.restore();
+
+        ctx.fillStyle="#222";ctx.textAlign="center";ctx.fillText(String(val),x+drawW/2,y-7);
+        ctx.save();ctx.translate(x+drawW/2,H-padB+10);ctx.rotate(-0.65);ctx.textAlign="right";ctx.fillStyle="#645e69";
+        ctx.fillText(label.length>22?label.slice(0,21)+"…":label,0,0);ctx.restore();
+
+        chartHitRegions.push({type:"bar",index:i,label,val,x,y,w:drawW,h});
+      });
+    } else {
+      const total=entries.reduce((a,[,v])=>a+v,0);
+      const cx=Math.min(W*.36,270),cy=H*.5,baseRad=Math.min(125,H*.36);
+      let ang=-Math.PI/2;
+
+      entries.forEach(([label,val],i)=>{
+        const fullSlice=(val/total)*Math.PI*2;
+        const slice=fullSlice*ease;
+        const mid=ang+slice/2;
+        const hovered=i===hoverIndex;
+        const offset=hovered?10:0;
+        const rad=baseRad+(hovered?6:0);
+        const ox=Math.cos(mid)*offset, oy=Math.sin(mid)*offset;
+
+        ctx.save();
+        if(hovered){ctx.shadowColor="rgba(0,0,0,.20)";ctx.shadowBlur=18;}
+        ctx.beginPath();ctx.moveTo(cx+ox,cy+oy);ctx.arc(cx+ox,cy+oy,rad,ang,ang+slice);ctx.closePath();
+        ctx.fillStyle=COLORS[i%COLORS.length];ctx.fill();
+        ctx.restore();
+
+        chartHitRegions.push({
+          type:"pie",index:i,label,val,total,
+          cx,cy,rad:baseRad+14,start:ang,end:ang+fullSlice
+        });
+        ang+=slice;
+      });
+
+      if(chartType==="donut"){
+        ctx.beginPath();ctx.arc(cx,cy,baseRad*.55,0,Math.PI*2);ctx.fillStyle="#fff";ctx.fill();
+        ctx.fillStyle="#222";ctx.textAlign="center";ctx.font="800 24px Inter,system-ui";
+        ctx.fillText(total,cx,cy+8);ctx.font="12px Inter,system-ui";ctx.fillStyle="#777";ctx.fillText("respuestas",cx,cy+28);
+      }
+
+      const lx=Math.min(W*.62,520); let ly=34;
+      ctx.font="13px Inter,system-ui";ctx.textAlign="left";
+      entries.forEach(([label,val],i)=>{
+        const hovered=i===hoverIndex;
+        const box=hovered?16:12;
+        ctx.fillStyle=COLORS[i%COLORS.length];
+        ctx.fillRect(lx-(hovered?2:0),ly-10-(hovered?2:0),box,box);
+        ctx.fillStyle=hovered?"#111":"#333";
+        if(hovered) ctx.font="700 13px Inter,system-ui";
+        const pct=(val/total*100).toFixed(1);
+        ctx.fillText(`${label} · ${val} (${pct}%)`,lx+20,ly);
+        ctx.font="13px Inter,system-ui";
+        ly+=24;
+      });
+    }
+    if(progress<1) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+
+function normalizeAngle(a){
+  const two=Math.PI*2;
+  a%=two;
+  if(a<0)a+=two;
+  return a;
+}
+
+function pointInSlice(x,y,r){
+  const dx=x-r.cx, dy=y-r.cy;
+  const dist=Math.hypot(dx,dy);
+  const inner=chartType==="donut"?r.rad*.42:0;
+  if(dist<inner||dist>r.rad)return false;
+  let a=normalizeAngle(Math.atan2(dy,dx));
+  let s=normalizeAngle(r.start), e=normalizeAngle(r.end);
+  if(e<s)e+=Math.PI*2;
+  if(a<s)a+=Math.PI*2;
+  return a>=s&&a<=e;
+}
+
+const chartCanvas=$("#chartCanvas");
+const tooltip=$("#chartTooltip");
+
+function setHoverFromPointer(evt){
+  const rect=chartCanvas.getBoundingClientRect();
+  const x=evt.clientX-rect.left, y=evt.clientY-rect.top;
+  let found=-1;
+
+  for(const r of chartHitRegions){
+    const hit=r.type==="bar"
+      ? (x>=r.x&&x<=r.x+r.w&&y>=r.y&&y<=r.y+r.h)
+      : pointInSlice(x,y,r);
+    if(hit){found=r.index;break;}
+  }
+
+  if(found!==hoverIndex){
+    hoverIndex=found;
+    drawChart(false);
+  }
+
+  if(found>=0){
+    const q=DATA.questions[currentQuestion];
+    const entries=Object.entries(q.data).sort((a,b)=>b[1]-a[1]);
+    const [label,val]=entries[found];
+    const total=entries.reduce((sum,[,v])=>sum+v,0);
+    const pct=(val/total*100).toFixed(1);
+    tooltip.innerHTML=`<strong>${label}</strong><span>${val} respuestas · ${pct}% del total</span>`;
+    const wrap=chartCanvas.parentElement.getBoundingClientRect();
+    tooltip.style.left=(evt.clientX-wrap.left)+"px";
+    tooltip.style.top=(evt.clientY-wrap.top)+"px";
+    tooltip.classList.add("show");
+    chartCanvas.style.cursor="pointer";
+  } else {
+    tooltip.classList.remove("show");
+    chartCanvas.style.cursor="default";
+  }
+}
+
+chartCanvas.addEventListener("pointermove",setHoverFromPointer);
+chartCanvas.addEventListener("pointerleave",()=>{
+  hoverIndex=-1;
+  tooltip.classList.remove("show");
+  chartCanvas.style.cursor="default";
+  drawChart(false);
+});
+chartCanvas.addEventListener("click",setHoverFromPointer);
+
+window.addEventListener("resize",()=>drawChart(false));
+setTimeout(()=>drawChart(false),50);
+
+const factorQ=DATA.questions.find(q=>q.id==="factor");
+$("#openAnswers").innerHTML = Object.entries(factorQ.data).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`
+  <div class="open-item"><strong>${k}</strong><br><span style="color:#6e6878">${v} menciones</span></div>
+`).join("");
+
+const areaFilter=$("#areaFilter"), customsFilter=$("#customsFilter"), searchBox=$("#searchBox");
+[...new Set(DATA.records.map(r=>r["Área"]))].sort().forEach(x=>areaFilter.add(new Option(x,x)));
+[...new Set(DATA.records.map(r=>r["Aduana con mayor dificultad"]))].sort().forEach(x=>customsFilter.add(new Option(x,x)));
+
+function renderRows(){
+  const a=areaFilter.value,c=customsFilter.value,s=searchBox.value.trim().toLowerCase();
+  const rs=DATA.records.filter(r=>
+    (!a||r["Área"]===a)&&(!c||r["Aduana con mayor dificultad"]===c)&&
+    (!s||Object.values(r).some(v=>String(v).toLowerCase().includes(s)))
+  );
+  $("#rowCount").textContent=`Mostrando ${rs.length} de ${DATA.records.length} registros`;
+  $("#responseBody").innerHTML=rs.map(r=>`<tr>
+    <td>${r["ID"]}</td><td>${r["Fecha y hora"]}</td><td>${r["Área"]}</td>
+    <td>${r["Frecuencia de contacto"]}</td><td>${r["Aduana con mayor dificultad"]}</td>
+    <td>${r["¿Ha experimentado retrasos?"]}</td><td>${r["Tiempo de respuesta (min)"]}</td>
+    <td>${r["Rango de espera"]}</td><td>${r["¿Información incompleta/tardía/contradictoria?"]}</td>
+    <td>${r["¿La distancia dificulta el seguimiento?"]}</td><td>${r["Eficiencia de comunicación (1-5)"]}</td>
+    <td>${r["Principal factor de retraso (abierta)"]}</td>
+  </tr>`).join("");
+}
+areaFilter.addEventListener("change",renderRows);
+customsFilter.addEventListener("change",renderRows);
+searchBox.addEventListener("input",renderRows);
+renderRows();
+
+$("#customsStatsBody").innerHTML = sortedCustoms.map(x=>`<tr>
+  <td>${x.aduana}</td><td>${x.count}</td><td>${x.avg.toFixed(1)} min</td><td>${x.delayPct.toFixed(1)}%</td>
+</tr>`).join("");
+</script>
+</body>
+</html>
